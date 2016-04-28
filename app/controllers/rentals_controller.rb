@@ -16,6 +16,7 @@ class RentalsController < ApplicationController
   # GET /rentals/new
   def new
     @rental = Rental.new
+    @student = Student.new
   end
 
   # GET /rentals/1/edit
@@ -29,7 +30,7 @@ class RentalsController < ApplicationController
 
     respond_to do |format|
       if @rental.save
-        format.html { redirect_to rentals_path}
+        format.html { redirect_to checkout_path}
         format.json { render :show, status: :created, location: @rental }
       else
         format.html { render :new }

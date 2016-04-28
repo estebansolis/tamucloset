@@ -17,6 +17,8 @@ class PagesController < ApplicationController
   end
 
   def checkout
+    @rental = Rental.new
+    @student = Student.new
   end
 
   def late

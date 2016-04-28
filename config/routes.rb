@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get 'students' => "students#index"
   get 'checkedout'=> "rentals#new", as: :checkedout
   get 'checkin'=> "pages#checkin", as: :checkin
-  get 'checkout'=> "rentals#new", as: :checkout
+  get 'checkout'=> "pages#checkout", as: :checkout
   get 'late'=> "pages#late", as: :late
   get 'manage'=> "pages#manage", as: :manage
   get 'signin'=> "pages#signin", as: :signin
