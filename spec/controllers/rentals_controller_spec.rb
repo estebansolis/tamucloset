@@ -101,7 +101,7 @@ RSpec.describe RentalsController, type: :controller do
 
       it "redirects to the created rental" do
         post :create, {:rental => valid_attributes}, valid_session
-        expect(response).to redirect_to(Rental.last)
+        expect(response).to redirect_to(checkout_path)
       end
     end
 
@@ -147,7 +147,7 @@ RSpec.describe RentalsController, type: :controller do
       it "redirects to the rental" do
         rental = Rental.create! valid_attributes
         put :update, {:id => rental.to_param, :rental => valid_attributes}, valid_session
-        expect(response).to redirect_to(rental)
+        expect(response).to redirect_to(rentals_path)
       end
     end
 

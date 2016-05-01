@@ -7,12 +7,13 @@ Feature: View all appointments
 Background: On Home Page
   
 Scenario: Look at appointments page
+  Given A user is logged in as "tester"
   Given I am on the home page
   When  I follow "Appointments"
-  Then  I expect to be on the appointments page
-  And   I see the calendar 
+  Then  I am on the appointments page
+  And   I see the calendar
   
 Scenario: Go back to home page
   Given I am on the appointments page
   When  I follow "Home"
-  Then  I expect to be on the home page
+  Then  I am on the home page

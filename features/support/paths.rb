@@ -20,6 +20,15 @@ module NavigationHelpers
     when /^the student\s?page$/
       students_path
 
+    when /^the checkin\s?page$/
+      checkin_path
+    
+    when /^the checkout\s?page$/
+      checkout_path
+      
+    when /^the appointment\s?page$/
+      appointments_path
+    
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

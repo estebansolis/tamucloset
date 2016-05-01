@@ -5,28 +5,29 @@ Feature: Add/Delete suit
 
 Background: suits in database
   Given the following suits exist:
-  | Apparel ID  | Sex     | Article   | Size  | Status |
+  
+  | Apparel_ID  | Sex     | Article   | Size  | Status |
   | FJ431       | Female  | Jacket    | 32    | In     |
       
 Scenario: Add a new suit
+  Given A user is logged in as "tester"
   Given I am on the home page
-  When  I press "Available"
-  Then I am on the available page
-  When  I press "New Apparel"
-  When  I fill out the "Apparel ID" with "FJ431"
-  And   I fill out the "Sex" with "Female"
-  And   I fill out the "Article" with "Jacket"
-  And   I fill out the "Size" with "2"
-  And   I press "Add Apparel"
-  Then  I expect to see "Apparel was successfully created."
-  And   I press "Back"
+  When  I follow "Apparel"
   Then  I am on the available page
-  And   I see the Apparel ID FJ431
+  When  I follow "New Apparel"
+  When  I fill in the "apparel_Apparel_ID" with "FJ431"
+  And   I fill in the "apparel_Sex" with "Female"
+  And   I fill in the "apparel_Article" with "Jacket"
+  And   I fill in the "apparel_Size" with "2"
+  And   I fill in the "apparel_Status" with "In"
+  And   I press "Create Apparel"
+  Then  I am on the available page
+  And   I expect to see "FJ431"
   
 Scenario: Delete a existing suit
   Given I am on the home page
-  When  I press "Available"
-  Then I am on the available page
-  When  I press Destroy
-  And   I press "OK"
-  Then I expect to see "Apparel was successfully destroyed."
+  When  I follow "Apparel"
+  Then  I am on the available page
+  When  I follow "Destroy"
+  And   I confirm popup
+  Then  I expect to see "Apparel was successfully destroyed."

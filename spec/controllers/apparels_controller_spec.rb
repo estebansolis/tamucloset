@@ -117,7 +117,7 @@ RSpec.describe ApparelsController, type: :controller do
 
       it "redirects to the created apparel" do
         post :create, {:apparel => valid_attributes}, valid_session
-        expect(response).to redirect_to(Apparel.last)
+        expect(response).to redirect_to(available_path)
       end
     end
 
@@ -162,7 +162,7 @@ RSpec.describe ApparelsController, type: :controller do
       it "redirects to the apparel" do
         apparel = Apparel.create! valid_attributes
         put :update, {:id => apparel.to_param, :apparel => valid_attributes}, valid_session
-        expect(response).to redirect_to(apparel)
+        expect(response).to redirect_to(available_path)
       end
     end
 
@@ -192,7 +192,7 @@ RSpec.describe ApparelsController, type: :controller do
     it "redirects to the apparels list" do
       apparel = Apparel.create! valid_attributes
       delete :destroy, {:id => apparel.to_param}, valid_session
-      expect(response).to redirect_to(apparels_url)
+      expect(response).to redirect_to(available_path)
     end
   end
 

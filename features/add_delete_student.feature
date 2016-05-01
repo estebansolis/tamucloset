@@ -5,6 +5,7 @@ Feature: Add/Delete student
 
 Background: students in database
   Given the following students exist:
+  
   | UIN        | First_Name  | Last_Name  | Email              | Phone_Number |
   | 922004958  | Rafael      | Salas      | rafsalas@tamu.edu  | 2478247242   |
       
@@ -20,15 +21,15 @@ Scenario: Add a new student
   And   I fill in the "student_Email" with "person@tamu.edu"
   And   I fill in the "student_Phone_Number" with "0987654321"
   And   I press "Create Student"
-  Then  I should see "Student was successfully created."
+  Then  I expect to see "Student was successfully created."
   And   I follow "Back"
   Then  I am on the students page
-  And   I should see "123456789"
+  And   I expect to see "123456789"
   
 Scenario: Delete a existing student
   Given I am on the home page
   When  I follow "Students"
   Then  I am on the students page
-  When  I follow "Delete"
+  When  I follow "Destroy"
   And   I confirm popup
-  Then  I should see "Student was successfully destroyed."
+  Then  I expect to see "Student was successfully destroyed."

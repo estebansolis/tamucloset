@@ -10,6 +10,3 @@ require 'rails_helper'
 #     end
 #   end
 # end
-RSpec.describe RentalsHelper, type: :helper do
-    skip("No helpers yet")
-end
