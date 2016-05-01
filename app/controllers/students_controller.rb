@@ -16,6 +16,7 @@ class StudentsController < ApplicationController
   # GET /students/new
   def new
     @student = Student.new
+    @uin = params[:uin]
   end
 
   # GET /students/1/edit
@@ -26,10 +27,9 @@ class StudentsController < ApplicationController
   # POST /students.json
   def create
     @student = Student.new(student_params)
-
     respond_to do |format|
       if @student.save
-        format.html { redirect_to @student, notice: 'Student was successfully created.' }
+        format.html { redirect_to students_path }
         format.json { render :show, status: :created, location: @student }
       else
         format.html { render :new }

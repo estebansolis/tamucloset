@@ -7,7 +7,7 @@
 		<%= form_for(@student) do |f| %>
 		<p>
 			<%= f.label :UIN %><br>
-      		<%= f.text_field :UIN %>
+      		<%= f.text_field :UIN,  :value => @uin%>
 		</p>
 		<p>
 			 <%= f.label :First_Name %><br>

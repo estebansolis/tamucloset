@@ -26,15 +26,27 @@ class RentalsController < ApplicationController
   # POST /rentals
   # POST /rentals.json
   def create
-   @rental = Rental.new(rental_params)
-
-    respond_to do |format|
-      if @rental.save
-        format.html { redirect_to checkout_path}
-        format.json { render :show, status: :created, location: @rental }
-      else
-        format.html { render :new }
-        format.json { render json: @rental.errors, status: :unprocessable_entity }
+    @rental = Rental.new(rental_params)
+    
+    if(Student.exists?(UIN: @rental.UIN))
+      respond_to do |format|
+        if @rental.save
+          format.html { redirect_to rentals_path}
+          format.json { render :show, status: :created, location: @rental }
+        else
+          format.html { render :new }
+          format.json { render json: @rental.errors, status: :unprocessable_entity }
+        end
+      end
+    else
+      respond_to do |format|
+        if @rental.save
+          format.html { redirect_to new_student_path(:uin => @rental.UIN)}
+          format.json { render :show, status: :created, location: @rental }
+        else
+          format.html { render :new }
+          format.json { render json: @rental.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
