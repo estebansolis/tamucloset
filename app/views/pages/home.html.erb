@@ -1,11 +1,15 @@
 
-    <div class="container">
-        <div class="starter-template">
-            <h1 class ="headers1">TEXAS A&M UNIVERSITY CAREER CLOSET - INTERNAL SYSTEM</h1>
-            <div class="buttonHolder">
-                    <%= link_to "Check Out", checkout_path, :class => 'btn-btn-primary2' %> 
-                    <%= link_to "Check In", checkin_path, :class => 'btn-btn-primary1' %> 
-            </div>
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner" role="listbox">
+    <div class="carousel-item active">
+    	<%= image_tag "a.jpg" %>
+      	<div class="carousel-caption">
+      		<h1 class ="headers1">TEXAS A&M UNIVERSITY CAREER CLOSET - INTERNAL SYSTEM</h1>
+        	<div class="buttonHolder">
+            	<%= link_to "Check Out", checkout_path, :class => 'btn-btn-primary2' %> 
+            	<%= link_to "Check In", checkin_path, :class => 'btn-btn-primary1' %> 
+        	</div>
         </div>
     </div>
-
+  </div>
+</div>
