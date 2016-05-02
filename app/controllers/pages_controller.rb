@@ -14,21 +14,15 @@ class PagesController < ApplicationController
   end
 
   def available
-    if current_user.admin?
-       render layout: "admin"
-    end
+
   end
 
   def checkedout
-    if current_user.admin?
-       render layout: "admin"
-    end
+
   end
 
   def checkin
-    if current_user.admin?
-       render layout: "admin"
-    end
+
   end
 
   def checkout
