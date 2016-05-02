@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
+
+
   devise_for :users
   devise_for :views
   resources :rentals
   resources :students
   resources :apparels
   root 'pages#home'
+  
+  devise_scope :user do
+    get 'auth' => "pages#auth", :as => :auth
+  end
   
   get 'appointments' => "pages#appointments", as: :appointments
   get 'available' => "apparels#index", as: :available

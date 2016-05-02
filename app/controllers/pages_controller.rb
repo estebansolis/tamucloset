@@ -1,7 +1,8 @@
 class PagesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:home, :appointments, :checkin]
   
   def home
+    
   end
 
   def appointments
@@ -28,5 +29,20 @@ class PagesController < ApplicationController
   end
 
   def signin
+  end
+  
+  def auth
+    render layout: "login"
+    def resource_name
+      :user
+    end
+
+    def resource
+      @resource ||= User.new
+    end
+
+    def devise_mapping
+      @devise_mapping ||= Devise.mappings[:user]
+    end
   end
 end
