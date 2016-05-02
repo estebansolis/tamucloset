@@ -27,27 +27,39 @@ class RentalsController < ApplicationController
   # POST /rentals.json
   def create
     @rental = Rental.new(rental_params)
-    
-    if(Student.exists?(UIN: @rental.UIN))
-      respond_to do |format|
-        if @rental.save
-          format.html { redirect_to rentals_path}
-          format.json { render :show, status: :created, location: @rental }
-        else
-          format.html { render :new }
-          format.json { render json: @rental.errors, status: :unprocessable_entity }
+    if(Apparel.exists?(Apparel_ID: @rental.Apparel_ID) )#find if Apparel id exist
+      @apparel = Apparel.find_by(Apparel_ID: @rental.Apparel_ID)
+      if(@apparel.Status === "IN" ) #if it exist and is not checked out, list as checked out
+        @apparel.Status = "OUT"
+        @apparel.save
+        if(Student.exists?(UIN: @rental.UIN)) # does a new student need to be added?
+          respond_to do |format|
+            if @rental.save
+              format.html { redirect_to rentals_path}
+              format.json { render :show, status: :created, location: @rental }
+            else
+              format.html { render :new }
+              format.json { render json: @rental.errors, status: :unprocessable_entity }
+            end
         end
+        else
+          respond_to do |format|
+            if @rental.save
+              format.html { redirect_to new_student_path(:uin => @rental.UIN)}
+              format.json { render :show, status: :created, location: @rental }
+            else
+              format.html { render :new }
+              format.json { render json: @rental.errors, status: :unprocessable_entity }
+            end
+          end
+        end      
+      else
+        flash[:alert] =  'Apparel is listed as checked out' 
+        redirect_to checkout_path
       end
     else
-      respond_to do |format|
-        if @rental.save
-          format.html { redirect_to new_student_path(:uin => @rental.UIN)}
-          format.json { render :show, status: :created, location: @rental }
-        else
-          format.html { render :new }
-          format.json { render json: @rental.errors, status: :unprocessable_entity }
-        end
-      end
+        flash[:alert] =  'Apparel does not exist'#format.html { redirect_to checkout_path, notice: 'Apparel does not exist' } #id not found
+        redirect_to checkout_path
     end
   end
 
