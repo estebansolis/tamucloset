@@ -1,32 +1,4 @@
 <p id="notice"><%= notice %></p>
-
-<!-- <h1>Listing Students</h1>
-
-<table class="table table-hover">
-  <thead class="thead-inverse">
-    <tr>
-      <th>UIN</th>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Email</th>
-      <th>Phone Number</th>
-    </tr>
-  </thead>
-  <tbody>
-       <% @students.each do |student| %>
-      <tr>
-        <td><%= student.UIN %></td>
-        <td><%= student.First_Name %></td>
-        <td><%= student.Last_Name %></td>
-        <td><%= student.Email %></td>
-        <td><%= student.Phone_Number %></td>
-        <td><%= link_to 'Edit', edit_student_path(student) %></td>
-        <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table> -->
-
 <div class="container">
     <div class="row">
         <div class="panel panel-primary filterable">
@@ -66,8 +38,3 @@
     </div>
 </div>
 
-<br>
-
-<div class="test">
-<%= link_to 'New Student', new_student_path %>
-</div>

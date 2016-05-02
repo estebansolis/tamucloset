@@ -1,73 +1,3 @@
-
-
-
-<!-- <div class="container">
-    <div class="row">
-        <div class="panel panel-primary filterable">
-            <div class="panel-heading">
-                <h3 class="panel-title">Apparel</h3>
-                <div class="pull-right">
-                    <button class="btn btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter"></span> Filter</button>
-                </div>
-            </div>
-            <table class="table">
-                <thead>
-                    <tr class="filters">
-                        <th><input type="text" class="form-control" placeholder="ID" enabled></th>
-                        <th><input type="text" class="form-control" placeholder="Sex" enabled></th>
-                        <th><input type="text" class="form-control" placeholder="Article" enabled></th>
-                        <th><input type="text" class="form-control" placeholder="Size" enabled></th>
-                        <th><input type="text" class="form-control" placeholder="Status" enabled></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% @apparels.each do |apparel| %>
-                      <tr>
-                        <td><%= apparel.Apparel_ID %></td>
-                        <td><%= apparel.Sex %></td>
-                        <td><%= apparel.Article %></td>
-                        <td><%= apparel.Size %></td>
-                        <td><%= apparel.Status %></td>
-                        <td><%= link_to 'Edit', edit_apparel_path(apparel) %></td>
-                        <td><%= link_to 'Destroy', apparel, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                      </tr>
-                    <% end %>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div> -->
-<!--<table class="table table-hover">-->
-<!--  <thead>-->
-<!--    <tr>-->
-<!--      <th>ID</th>-->
-<!--      <th>Sex</th>-->
-<!--      <th>Article</th>-->
-<!--      <th>Size</th>-->
-<!--      <th>Status</th>-->
-<!--  </thead>-->
-<!--  <tbody>-->
-<!--    <% @apparels.each do |apparel| %>-->
-<!--      <tr>-->
-<!--        <td><%= apparel.Apparel_ID %></td>-->
-<!--        <td><%= apparel.Sex %></td>-->
-<!--        <td><%= apparel.Article %></td>-->
-<!--        <td><%= apparel.Size %></td>-->
-<!--        <td><%= apparel.Status %></td>-->
-<!--        <td><%= link_to 'Edit', edit_apparel_path(apparel) %></td>-->
-<!--        <td><%= link_to 'Destroy', apparel, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
-<!--      </tr>-->
-<!--    <% end %>-->
-<!--  </tbody>-->
-<!--</table>-->
-  
-<!--<style>body { margin: 10px; }</style>-->
-
-
-<!--<br>-->
-
-<!--<%= link_to 'New Apparel', new_apparel_path %>-->
-
 <p id="notice"><%= notice %></p>
 
 
@@ -111,8 +41,8 @@
 
 <br>
 
-<div class="test">
-<%= link_to 'New Apparel', new_apparel_path %>
+<div class="button2">
+<%= link_to 'New Apparel', new_apparel_path, class:"btn-btn-primary3" %>
 </div>
 
 
