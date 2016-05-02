@@ -13,7 +13,7 @@
   color: #500000;
 }
 .buttonHolder {
- padding: 200px 400px;
+ padding: 290px 200px;
  overflow: hidden; 
  text-align: center;
 }
@@ -79,9 +79,17 @@
   background-color: #500000;
   /* Set the fixed height of the footer here */
   height: 40px;
-  
-  
 }
+
+html{
+  position: relative;
+  min-height: 100%;
+}
+
+body{
+  margin-bottom: 40px;
+}
+
 footer a {
     color: #FFFFFF;
     text-decoration: none;

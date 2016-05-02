@@ -1,36 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<!-- <h1>Listing Rentals</h1>
-
-<table class="table table-hover">
-  <thead class="thead-inverse">
-    <tr>
-      <th>Rental ID</th>
-      <th>UIN</th>
-      <th>Apparel ID</th>
-      <th>Checkout Date</th>
-      <th>Expected Return Date</th>
-      <th>Return Date</th>
-    </tr>
-  </thead>
-  <tbody>
-      <% @rentals.each do |rental| %>
-      <tr>
-        <td><%= rental.Rental_ID %></td>
-        <td><%= rental.UIN %></td>
-        <td><%= rental.Apparel_ID %></td>
-        <td><%= rental.Checkout_Date %></td>
-        <td><%= rental.Expected_Return_Date %></td>
-        <td><%= rental.Return_Date %></td>
-        <td><%= link_to 'Edit', edit_rental_path(rental) %></td>
-        <td><%= link_to 'Destroy', rental, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table> -->
-
-
-<div class="container">
+<div class="container" id="tablecontainer2">
     <div class="row">
         <div class="panel panel-primary filterable">
             <div class="panel-heading">

@@ -22,6 +22,22 @@
 @import "utilities";
 @import "pages";
 
+#tablecontainer1 {
+	padding-top: 110px;
+}
+
+#tablecontainer2 {
+	padding-top: 110px;
+}
+
+#tablecontainer3 {
+	padding-top: 110px;
+}
+
+#tablecontainer4 {
+	padding-top: 90px;
+}
+
 .button2{
 	text-align: center;
 	width: 60%;
@@ -32,10 +48,15 @@
 
 .test {
     text-align: center;
-    padding-bottom: 30px
+    padding-bottom: 30px;
+    padding-top: 60px;
 }
 .form{
 	text-align: center;
+}
+
+.table{
+	padding-top: 40px;
 }
 
 .table td {
