@@ -1,0 +1,22 @@
+<div class="login-page">
+ <div class="form">
+   
+  <%= form_for(:user, :url => session_path(:user)) do |f| %> 
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+
+    <%= f.label :password %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+
+
+  <div class="actions">
+    <%= f.submit "Log in" %>
+  </div>
+<% end %>
+
+</div>
+</div>
+
+
