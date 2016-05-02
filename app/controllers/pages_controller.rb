@@ -2,19 +2,33 @@ class PagesController < ApplicationController
   before_action :authenticate_user!, only: [:home, :appointments, :checkin]
   
   def home
-    
+    if current_user.admin?
+       render layout: "admin"
+    end
   end
 
   def appointments
+    if current_user.admin?
+       render layout: "admin"
+    end
   end
 
   def available
+    if current_user.admin?
+       render layout: "admin"
+    end
   end
 
   def checkedout
+    if current_user.admin?
+       render layout: "admin"
+    end
   end
 
   def checkin
+    if current_user.admin?
+       render layout: "admin"
+    end
   end
 
   def checkout
@@ -33,16 +47,13 @@ class PagesController < ApplicationController
   
   def auth
     render layout: "login"
-    def resource_name
-      :user
-    end
-
-    def resource
-      @resource ||= User.new
-    end
-
-    def devise_mapping
-      @devise_mapping ||= Devise.mappings[:user]
-    end
   end
+  
+  def settings
+    if current_user.admin?
+       render layout: "admin"
+    else
+       redirect_to root_path
+    end
+  end 
 end

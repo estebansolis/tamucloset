@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+
+
   devise_for :users
   devise_for :views
   resources :rentals
@@ -11,7 +13,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     get 'auth' => "pages#auth", :as => :auth
   end
-  
+  get 'settings' => "pages#settings", as: :settings
   get 'appointments' => "pages#appointments", as: :appointments
   get 'available' => "apparels#index", as: :available
   get 'rentals' => "rentals#index"
