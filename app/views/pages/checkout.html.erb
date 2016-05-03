@@ -44,10 +44,39 @@
 		</tr>
 		<br>
 	</tbody>
-	<tr id="td_button">
-		<td>
-			<%= f.submit class: "btn-btn-primary3" %>
-			<% end %>
-		</td>
-	</tr>
 </table>
+
+<div class="form">
+	<%= f.submit class: "btn-btn-primary3" %>
+</div>
+<% end %>
+
+<!--<div class="form">-->
+<!-- 	<tbody>-->
+<!-- 		<%= form_for(@rental) do |f| %>-->
+<!-- 		<p>-->
+<!-- 			 <%= f.label :UIN %><br>-->
+<!--      		 <%= f.text_field :UIN %>-->
+<!-- 		</p>-->
+<!-- 		<p>-->
+<!-- 			<%= f.label :Rental_ID %><br>-->
+<!--       		<%= f.text_field :Rental_ID %>-->
+<!-- 		</p>-->
+<!-- 		<p>-->
+<!-- 			 <%= f.label :Apparel_ID %><br>-->
+<!--      		 <%= f.text_field :Apparel_ID %>-->
+<!-- 		</p>-->
+<!-- 		<p>-->
+<!-- 			<%= f.label :Checkout_Date %><br>-->
+<!--       		<%= f.date_field :Checkout_Date %>-->
+<!-- 		</p>-->
+<!-- 		<p>-->
+<!-- 			<%= f.label :Expected_Return_Date %><br>-->
+<!--      	 	<%= f.date_field :Expected_Return_Date %>-->
+<!-- 		</p>-->
+<!-- 		<p>-->
+<!-- 			<%= f.submit class: "btn-btn-primary3" %>-->
+<!-- 		</p>-->
+<!-- 		<% end %>-->
+<!-- 	</tbody>-->
+<!-- </div> -->
