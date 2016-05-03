@@ -1,29 +1,33 @@
-<p id="notice"><%= notice %></p>
+<div class='container' id='tablecontainer4'>
+  <div class="form">
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Apparel id:</strong>
-  <%= @apparel.Apparel_ID %>
-</p>
+    <p>
+      <strong>Apparel id:</strong>
+      <%= @apparel.Apparel_ID %>
+    </p>
 
-<p>
-  <strong>Sex:</strong>
-  <%= @apparel.Sex %>
-</p>
+    <p>
+      <strong>Sex:</strong>
+      <%= @apparel.Sex %>
+    </p>
 
-<p>
-  <strong>Article:</strong>
-  <%= @apparel.Article %>
-</p>
+    <p>
+      <strong>Article:</strong>
+      <%= @apparel.Article %>
+    </p>
 
-<p>
-  <strong>Size:</strong>
-  <%= @apparel.Size %>
-</p>
+    <p>
+      <strong>Size:</strong>
+      <%= @apparel.Size %>
+    </p>
 
-<p>
-  <strong>Status:</strong>
-  <%= @apparel.Status %>
-</p>
+    <p>
+      <strong>Status:</strong>
+      <%= @apparel.Status %>
+    </p>
 
-<%= link_to 'Edit', edit_apparel_path(@apparel) %> |
-<%= link_to 'Back', apparels_path %>
+    <%= link_to 'Edit', edit_apparel_path(@apparel) %> |
+    <%= link_to 'Back', apparels_path %>
+  </div>
+</div>

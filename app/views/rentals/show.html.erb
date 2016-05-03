@@ -1,34 +1,38 @@
-<p id="notice"><%= notice %></p>
+<div class='container' id='tablecontainer4'>
+  <div class="form">
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Rental id:</strong>
-  <%= @rental.Rental_ID %>
-</p>
+    <p>
+      <strong>Rental id:</strong>
+      <%= @rental.Rental_ID %>
+    </p>
 
-<p>
-  <strong>Uin:</strong>
-  <%= @rental.UIN %>
-</p>
+    <p>
+      <strong>Uin:</strong>
+      <%= @rental.UIN %>
+    </p>
 
-<p>
-  <strong>Apparel id:</strong>
-  <%= @rental.Apparel_ID %>
-</p>
+    <p>
+      <strong>Apparel id:</strong>
+      <%= @rental.Apparel_ID %>
+    </p>
 
-<p>
-  <strong>Checkout date:</strong>
-  <%= @rental.Checkout_Date %>
-</p>
+    <p>
+      <strong>Checkout date:</strong>
+      <%= @rental.Checkout_Date %>
+    </p>
 
-<p>
-  <strong>Expected return date:</strong>
-  <%= @rental.Expected_Return_Date %>
-</p>
+    <p>
+      <strong>Expected return date:</strong>
+      <%= @rental.Expected_Return_Date %>
+    </p>
 
-<p>
-  <strong>Return date:</strong>
-  <%= @rental.Return_Date %>
-</p>
+    <p>
+      <strong>Return date:</strong>
+      <%= @rental.Return_Date %>
+    </p>
 
-<%= link_to 'Edit', edit_rental_path(@rental) %> |
-<%= link_to 'Back', rentals_path %>
+    <%= link_to 'Edit', edit_rental_path(@rental) %> |
+    <%= link_to 'Back', rentals_path %>
+  </div>
+</div>
