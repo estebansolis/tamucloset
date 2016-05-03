@@ -2,6 +2,10 @@
 <h1>Check Out</h1>
 </div>
 
+
+<% if flash[:notice] %>
+  <div class="notice"><%= flash[:notice] %></div>
+<% end %>
 <div id="form1" class="form">
 	<div class="table">
 		<tbody>
@@ -13,7 +17,7 @@
 				</td>
 				<td>
 					 <%= f.label :UIN %>
-					 <%= f.text_field :UIN %>
+					 <%= f.text_field :UIN, :minlength => 9 , :maxlength => 9 %>
 				</td>
 				<td>
 					 <%= f.label :Apparel_ID %>

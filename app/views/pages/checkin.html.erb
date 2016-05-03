@@ -1,6 +1,9 @@
 <div class="test">
 <h1>Check In</h1>
 </div>
+  <% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+  <% end %>
 <form>
 <table class="table">
 	<thead>
@@ -22,7 +25,7 @@
 		<tr>
 			<td>
 				 
-				 <%= text_field_tag("uin") %>
+				 <%= text_field_tag "uin",nil, :maxlength => 9  %>
 			</td>
 			<td>
 				 <%= text_field_tag("app") %>
