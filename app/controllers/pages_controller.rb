@@ -1,6 +1,26 @@
 class PagesController < ApplicationController
   before_action :authenticate_user!, only: [:home, :appointments, :checkin]
-  
+    def users_destroy
+      @user = User.find(params[:id])
+      @user.destroy
+
+      if @user.destroy
+         redirect_to root_url, notice: "User deleted."
+      end
+    end
+    
+  def resource_name
+    :user
+  end
+
+  def resource
+    @resource ||= User.new
+  end
+
+  def devise_mapping
+    @devise_mapping ||= Devise.mappings[:user]
+  end
+    
   def home
     if current_user.try(:admin?)
        render layout: "admin"
@@ -86,15 +106,6 @@ class PagesController < ApplicationController
     else
        redirect_to root_path
     end
-    def destroy
-      @user = User.find(params[:id])
-      @user.destroy
-
-      if @user.destroy
-         redirect_to root_url, notice: "User deleted."
-      end
-    end
   
-    
   end 
 end

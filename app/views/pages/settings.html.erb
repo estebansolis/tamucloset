@@ -1,5 +1,8 @@
+<div class="test">
 <h2>Create User</h2>
+</div>
 
+<div class="form">
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
@@ -25,17 +28,21 @@
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
+</div>
 
 
 <!-- <%= render "devise/shared/links" %> -->
-
+<div class="test">
 <h3>Delete Users</h3>
-<table border="1" style="width:100%">
+</div>
+<table class="table table-hover" id="delete_users">
   <tr>  
     <% @users = User.all %>
     <% @users.each do |user| %>
-    <td><%= user.email %></td>
-    <td><%= link_to "Destroy", admin_destroy_user_path(user), method: :delete, data: { confirm: "You sure?" } %></td>
+    <tr>
+      <td><%= user.email %></td>
+      <td><%= link_to "Destroy", admin_destroy_user_path(user), method: :delete, data: { confirm: "You sure?" } %></td>
+    </tr>
   <% end %>
   </tr>
 </table>
