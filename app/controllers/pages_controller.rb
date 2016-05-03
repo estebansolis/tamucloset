@@ -14,15 +14,11 @@ class PagesController < ApplicationController
   end
 
   def available
-    if current_user.admin?
-       render layout: "admin"
-    end
+
   end
 
   def checkedout
-    if current_user.admin?
-       render layout: "admin"
-    end
+
   end
 
   def rental_return
@@ -48,6 +44,7 @@ class PagesController < ApplicationController
   end
   
   def checkin
+
     if current_user.admin?
        render layout: "admin"
     end
@@ -58,7 +55,6 @@ class PagesController < ApplicationController
           format.json { render :show, status: :created, location: @rental }
           end
         end
-
   end
 
   def checkout

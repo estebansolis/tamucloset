@@ -1,7 +1,17 @@
+
+
 class ApparelsController < ApplicationController
+  
   before_action :authenticate_user!
   before_action :set_apparel, only: [:show, :edit, :update, :destroy]
-
+  
+  
+  if Apparel.current_user.admin?
+      layout "admin"
+  else
+      layout "application"
+  end
+  
   # GET /apparels
   # GET /apparels.json
   def index

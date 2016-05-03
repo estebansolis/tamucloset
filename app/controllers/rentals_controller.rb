@@ -1,7 +1,13 @@
 class RentalsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_rental, only: [:show, :edit, :update, :destroy]
-
+  
+  if Rental.current_user.admin?
+      layout "admin"
+  else
+      layout "application"
+  end
+  
   # GET /rentals
   # GET /rentals.json
   def index

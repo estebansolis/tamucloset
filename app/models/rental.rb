@@ -5,4 +5,5 @@ class Rental < ActiveRecord::Base
     validates :Checkout_Date, presence: true
     validates :Expected_Return_Date, presence: true
     validates :Return_Date, presence: false
+    cattr_accessor :current_user
 end

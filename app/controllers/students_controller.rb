@@ -2,6 +2,12 @@ class StudentsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_student, only: [:show, :edit, :update, :destroy]
 
+  if Student.current_user.admin?
+      layout "admin"
+  else
+      layout "application"
+  end
+  
   # GET /students
   # GET /students.json
   def index
