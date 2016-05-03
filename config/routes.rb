@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   get 'late'=> "pages#late", as: :late
   get 'manage'=> "pages#manage", as: :manage
   get 'signin'=> "pages#signin", as: :signin
+  get 'rental_return' => "pages#rental_return", as: :return
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
