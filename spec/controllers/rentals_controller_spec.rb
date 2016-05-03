@@ -27,7 +27,7 @@ RSpec.describe RentalsController, type: :controller do
     {
       Rental_ID: "1",
       UIN: "123456789",
-      Apparel_ID: "4",
+      Apparel_ID: "12",
       Checkout_Date: "04-12-2016",
       Expected_Return_Date: "04-16-2016",
       Return_Date: "04-14-2016"
@@ -51,7 +51,7 @@ RSpec.describe RentalsController, type: :controller do
   let(:valid_session) { {} }
 
   before :each do
-    sign_in create( :user )
+    sign_in create( :admin )
   end
 
   describe "GET #index" do
@@ -88,6 +88,16 @@ RSpec.describe RentalsController, type: :controller do
   describe "POST #create" do
     context "with valid params" do
       it "creates a new Rental" do
+        
+        #@apparel=double(Apparel, :Apparel_ID => "12", :Sex => "Male", :Article => "Suit", :Size => "32", :Status =>"In")
+        #@student=double(Student, :UIN => "123456789", :First_Name => "John", :Last_Name => "Smith", :Email => "Smith@tamu.edu", :Phone_Number => "1234567890")
+        #Apparel.stub(:find).with("12").and_return(@apparel)
+        #Student.stub(:find).with("123456789").and_return(@student)
+        #expect(Apparel.find("12")).and_return(@apparel)
+        #expect(Student.find("123456789")).and_return(@student)
+        
+        
+        
         expect {
           post :create, {:rental => valid_attributes}, valid_session
         }.to change(Rental, :count).by(1)
@@ -101,7 +111,13 @@ RSpec.describe RentalsController, type: :controller do
 
       it "redirects to the created rental" do
         post :create, {:rental => valid_attributes}, valid_session
-        expect(response).to redirect_to(checkout_path)
+        expect(response).to redirect_to(new_student_path(:uin => '123456789'))
+      end
+      
+      it "redirects to the created rental for existing student" do
+        #respond_to(exists?).with(true)  Student.exists?(UIN: @rental.UIN)
+        post :create, {:rental => valid_attributes}, respond_to(Student.exists?(UIN: @rental.UIN)).with(true), valid_session
+        expect(response).to redirect_to(rentals_path)
       end
     end
 
@@ -124,7 +140,7 @@ RSpec.describe RentalsController, type: :controller do
         {
           Rental_ID: "2",
           UIN: "987654321",
-          Apparel_ID: "8",
+          Apparel_ID: "16",
           Checkout_Date: "06-16-2016",
           Expected_Return_Date: "06-20-2016",
           Return_Date: "06-18-2016"

@@ -2,13 +2,13 @@ class PagesController < ApplicationController
   before_action :authenticate_user!, only: [:home, :appointments, :checkin]
   
   def home
-    if current_user.admin?
+    if current_user.try(:admin?)
        render layout: "admin"
     end
   end
 
   def appointments
-    if current_user.admin?
+    if current_user.try(:admin?)
        render layout: "admin"
     end
   end

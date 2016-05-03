@@ -2,7 +2,7 @@ class RentalsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_rental, only: [:show, :edit, :update, :destroy]
   
-  if Rental.current_user.admin?
+  if Rental.current_user.try(:admin?)
       layout "admin"
   else
       layout "application"
