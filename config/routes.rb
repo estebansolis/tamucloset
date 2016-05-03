@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   get 'users/sign_in'=> "pages#auth"
   get 'users/:id' => 'users#show', as: :user
-  get 'users/:id' => 'users#destroy', :via => :delete, :as => :admin_destroy_user
+  delete 'users_destroy/:id' => 'pages#users_destroy', :via => :delete, :as => :admin_destroy_user
   get 'settings' => "pages#settings", as: :settings
   get 'appointments' => "pages#appointments", as: :appointments
   get 'available' => "apparels#index", as: :available
