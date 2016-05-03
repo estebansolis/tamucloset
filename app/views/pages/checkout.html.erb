@@ -2,50 +2,44 @@
 <h1>Check Out</h1>
 </div>
 
-<table class="table">
-	<thead>
-		<tr>
-			<%= form_for(@rental) do |f| %>
-			<th align="center">
-				<%= f.label :Rental_ID %>
-			</th>
-			<th>
-				 <%= f.label :UIN %>
-			</th>
-			<th>
-				 <%= f.label :Apparel_ID %>
-			</th>
-			<th>
-				<%= f.label :Checkout_Date %>
-			</th>
-			<th>
-				<%= f.label :Expected_Return_Date %>
-			</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td>
-				<%= f.text_field :Rental_ID %>
-			</td>
-			<td>
-				 <%= f.text_field :UIN %>
-			</td>
-			<td>
-				 <%= f.text_field :Apparel_ID %>
-			</td>
-			<td>
-				<%= f.date_field :Checkout_Date %>
-			</td>
-			<td>
-				<%= f.date_field :Expected_Return_Date %>
-			</td>
-		</tr>
-		<br>
-	</tbody>
-</table>
 
-<div class="form">
-	<%= f.submit class: "btn-btn-primary3" %>
-</div>
+<% if flash[:notice] %>
+  <div class="notice"><%= flash[:notice] %></div>
 <% end %>
+<div id="form1" class="form">
+	<div class="table">
+		<tbody>
+			<%= form_for(@rental) do |f| %>
+			<tr>
+				<td>
+					<%= f.label :Rental_ID %>
+					<%= f.text_field :Rental_ID %>
+				</td>
+				<td>
+					 <%= f.label :UIN %>
+					 <%= f.text_field :UIN, :minlength => 9 , :maxlength => 9 %>
+				</td>
+				<td>
+					 <%= f.label :Apparel_ID %>
+					 <%= f.text_field :Apparel_ID %>
+				</td>
+				<td>
+					<%= f.label :Checkout_Date %>
+					<%= f.date_field :Checkout_Date %>
+				</td>
+				<td>
+					<%= f.label :Expected_Return_Date %>
+					<%= f.date_field :Expected_Return_Date %>
+				</td>
+
+			</tr>
+
+			<tr>
+				<td>
+					<%= f.submit class: "btn-btn-primary3" %>
+				</td>
+				<% end %>
+			</tr>
+		</tbody>
+	</div>
+</div>

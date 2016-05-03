@@ -30,5 +30,7 @@ class ApplicationController < ActionController::Base
     auth_path
   end
   
+  
+  
 
 end

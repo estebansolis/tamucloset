@@ -6,11 +6,11 @@ class ApparelsController < ApplicationController
   before_action :set_apparel, only: [:show, :edit, :update, :destroy]
   
   
-  if Apparel.current_user.admin?
-      layout "admin"
-  else
+  #if Apparel.current_user.admin?
+   #   layout "admin"
+  #else
       layout "application"
-  end
+ # end
   
   # GET /apparels
   # GET /apparels.json

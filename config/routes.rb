@@ -29,9 +29,8 @@ Rails.application.routes.draw do
   get 'checkout'=> "pages#checkout", as: :checkout
   get 'late'=> "pages#late", as: :late
   get 'manage'=> "pages#manage", as: :manage
-  get 'signin'=> "pages#auth", as: :signin
-  
-
+  get 'signin'=> "pages#signin", as: :signin
+  get 'rental_return' => "pages#rental_return", as: :return
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

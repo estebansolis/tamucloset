@@ -1,42 +1,46 @@
-<!--  jQuery -->
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<div class="test">
+<h1>Check In</h1>
+</div>
+  <% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+  <% end %>
+<form>
+<table class="table">
+	<thead>
+		<tr>
+			<%= form_tag return_path do %>
+			<th>
+				 <label for="UIN">UIN</label>
+				 
+			</th>
+			<th>
+				  <label for="Apparel_ID">Apparel_ID</label>
+			</th>
+			<th>
+				 <label for="Return_Date">Return_Date</label>
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>
+				 
+				 <%= text_field_tag "uin",nil, :maxlength => 9  %>
+			</td>
+			<td>
+				 <%= text_field_tag("app") %>
+			</td>
+			<td>
+				<%= date_field_tag("date") %>
+			</td>
+		</tr>
+		<br>
+	</tbody>
+</table>
 
-<!-- Isolated Version of Bootstrap, not needed if your site already used Bootstrap -->
-<link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
+<div class="form">
+     <%= submit_tag "Submit" ,class: "btn-btn-primary3" %> 
 
-<!-- Bootstrap Date-Picker Plugin -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
-
-<!DOCTYPE html>
-<html lang="en">
-    <div class="container">
-        <div class="starter-template">
-            <h1>Check In </h1>
-            <form>
-                <fieldset class="form-group">
-                <label for="uin">UIN</label>
-                <input type="email" class="form-control" id="uin" placeholder="Enter UIN">
-                <label for="apparel_id">Apparel ID</label>
-                <input type="email" class="form-control" id="apparel_id" placeholder="Enter Apparel ID">
-                <label class="control-label" for="return_date">Returned Date</label>
-                <input class="form-control" id="return_date" name="date" placeholder="MM/DD/YYYY" type="text"/>
-                <br>
-                <%= link_to "Submit", checkin_path, :class => 'btn btn-primary'%>
-
-            </form>
-        </div>
-    </div><!-- /.container -->
-</html>
-
-<script>
-    var date_input=$('input[name="date"]'); //our date input has the name "date"
-    var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
-    var options={
-        format: 'mm/dd/yyyy',
-        container: container,
-        todayHighlight: true,
-        autoclose: true,
-    };
-    date_input.datepicker(options); //initiali110/26/2015 8:20:59 PM ze plugin
-</script>
+</div>
+</form>
+<% end %>

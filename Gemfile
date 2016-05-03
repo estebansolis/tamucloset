@@ -31,6 +31,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use jquery datatables for sortable tables
 gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
 
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
