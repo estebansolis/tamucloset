@@ -49,7 +49,7 @@ RSpec.describe StudentsController, type: :controller do
   let(:valid_session) { {} }
 
   before :each do
-    sign_in create( :user )
+    sign_in create( :admin )
   end
 
   describe "GET #index" do
@@ -99,7 +99,7 @@ RSpec.describe StudentsController, type: :controller do
 
       it "redirects to the created student" do
         post :create, {:student => valid_attributes}, valid_session
-        expect(response).to redirect_to(Student.last)
+        expect(response).to redirect_to(students_path)
       end
     end
 

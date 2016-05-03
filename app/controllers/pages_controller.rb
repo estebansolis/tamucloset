@@ -22,13 +22,13 @@ class PagesController < ApplicationController
   end
     
   def home
-    if current_user.admin?
+    if current_user.try(:admin?)
        render layout: "admin"
     end
   end
 
   def appointments
-    if current_user.admin?
+    if current_user.try(:admin?)
        render layout: "admin"
     end
   end

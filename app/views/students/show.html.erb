@@ -1,29 +1,33 @@
-<p id="notice"><%= notice %></p>
+<div class='container' id='tablecontainer4'>
+  <div class="form">
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Uin:</strong>
-  <%= @student.UIN %>
-</p>
+    <p>
+      <strong>Uin:</strong>
+      <%= @student.UIN %>
+    </p>
 
-<p>
-  <strong>First name:</strong>
-  <%= @student.First_Name %>
-</p>
+    <p>
+      <strong>First name:</strong>
+      <%= @student.First_Name %>
+    </p>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @student.Last_Name %>
-</p>
+    <p>
+      <strong>Last name:</strong>
+      <%= @student.Last_Name %>
+    </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @student.Email %>
-</p>
+    <p>
+      <strong>Email:</strong>
+      <%= @student.Email %>
+    </p>
 
-<p>
-  <strong>Phone number:</strong>
-  <%= @student.Phone_Number %>
-</p>
+    <p>
+      <strong>Phone number:</strong>
+      <%= @student.Phone_Number %>
+    </p>
 
-<%= link_to 'Edit', edit_student_path(@student) %> |
-<%= link_to 'Back', students_path %>
+    <%= link_to 'Edit', edit_student_path(@student) %> |
+    <%= link_to 'Back', students_path %>
+  </div>
+</div>
