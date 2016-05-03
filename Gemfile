@@ -13,6 +13,9 @@ gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 gem 'devise', '~> 4.0'
 
+gem 'turbolinks'
+gem 'jquery-turbolinks'
+
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'

@@ -32,14 +32,8 @@ class RentalsController < ApplicationController
   # POST /rentals
   # POST /rentals.json
   def create
-    
     @rental = Rental.new(rental_params)
-    if(!@rental.nil?)
-      if @rental.UIN.length != 9
-        flash[:notice] = "UIN cannot be less than 9 digits"
-        redirect_to checkout_path
-      end
-    elsif(Apparel.exists?(Apparel_ID: @rental.Apparel_ID) ) #find if Apparel id exist
+    if(Apparel.exists?(Apparel_ID: @rental.Apparel_ID) )#find if Apparel id exist
       @apparel = Apparel.find_by(Apparel_ID: @rental.Apparel_ID)
       if(@apparel.Status === "IN" ) #if it exist and is not checked out, list as checked out
         @apparel.Status = "OUT"
@@ -66,11 +60,11 @@ class RentalsController < ApplicationController
           end
         end      
       else
-        flash[:notice] =  'Apparel is listed as checked out' 
+        flash[:alert] =  'Apparel is listed as checked out' 
         redirect_to checkout_path
       end
     else
-        flash[:notice] =  'Apparel does not exist or fields left blank'#format.html { redirect_to checkout_path, notice: 'Apparel does not exist' } #id not found
+        flash[:alert] =  'Apparel does not exist'#format.html { redirect_to checkout_path, notice: 'Apparel does not exist' } #id not found
         redirect_to checkout_path
     end
   end
