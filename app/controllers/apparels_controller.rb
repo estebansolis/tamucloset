@@ -6,11 +6,11 @@ class ApparelsController < ApplicationController
   before_action :set_apparel, only: [:show, :edit, :update, :destroy]
   
   
-  #if Apparel.current_user.admin?
-   #   layout "admin"
-  #else
+  if Apparel.current_user.admin?
+      layout "admin"
+  else
       layout "application"
- # end
+  end
   
   # GET /apparels
   # GET /apparels.json
@@ -51,24 +51,32 @@ class ApparelsController < ApplicationController
   # PATCH/PUT /apparels/1
   # PATCH/PUT /apparels/1.json
   def update
-    respond_to do |format|
-      if @apparel.update(apparel_params)
-        format.html { redirect_to available_path, notice: 'Apparel was successfully updated.' }
-        format.json { render :show, status: :ok, location: @apparel }
-      else
-        format.html { render :edit }
-        format.json { render json: @apparel.errors, status: :unprocessable_entity }
+    if Apparel.current_user.admin?
+      respond_to do |format|
+        if @apparel.update(apparel_params)
+          format.html { redirect_to available_path, notice: 'Apparel was successfully updated.' }
+          format.json { render :show, status: :ok, location: @apparel }
+        else
+          format.html { render :edit }
+          format.json { render json: @apparel.errors, status: :unprocessable_entity }
+        end
       end
+    else
+      redirect_to available_path
     end
   end
 
   # DELETE /apparels/1
   # DELETE /apparels/1.json
   def destroy
-    @apparel.destroy
-    respond_to do |format|
-      format.html { redirect_to available_path}
-      format.json { head :no_content }
+    if Apparel.current_user.admin? 
+      @apparel.destroy
+      respond_to do |format|
+        format.html { redirect_to available_path}
+        format.json { head :no_content }
+      end
+    else
+      redirect_to available_path
     end
   end
 
