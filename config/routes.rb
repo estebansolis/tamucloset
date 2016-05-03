@@ -8,11 +8,17 @@ Rails.application.routes.draw do
   resources :rentals
   resources :students
   resources :apparels
+
   root 'pages#home'
   
   devise_scope :user do
     get 'auth' => "pages#auth", :as => :auth
   end
+
+
+  get 'users/sign_in'=> "pages#auth"
+  get 'users/:id' => 'users#show', as: :user
+  get 'users/:id' => 'users#destroy', :via => :delete, :as => :admin_destroy_user
   get 'settings' => "pages#settings", as: :settings
   get 'appointments' => "pages#appointments", as: :appointments
   get 'available' => "apparels#index", as: :available
@@ -23,7 +29,9 @@ Rails.application.routes.draw do
   get 'checkout'=> "pages#checkout", as: :checkout
   get 'late'=> "pages#late", as: :late
   get 'manage'=> "pages#manage", as: :manage
-  get 'signin'=> "pages#signin", as: :signin
+  get 'signin'=> "pages#auth", as: :signin
+  
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

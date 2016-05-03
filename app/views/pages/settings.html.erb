@@ -26,4 +26,16 @@
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+
+<!-- <%= render "devise/shared/links" %> -->
+
+<h3>Delete Users</h3>
+<table border="1" style="width:100%">
+  <tr>  
+    <% @users = User.all %>
+    <% @users.each do |user| %>
+    <td><%= user.email %></td>
+    <td><%= link_to "Destroy", admin_destroy_user_path(user), method: :delete, data: { confirm: "You sure?" } %></td>
+  <% end %>
+  </tr>
+</table>
