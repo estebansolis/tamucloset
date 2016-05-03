@@ -2,7 +2,7 @@ class RentalsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_rental, only: [:show, :edit, :update, :destroy]
   
-  if Rental.current_user.admin?
+  if Rental.current_user.try(:admin?)
       layout "admin"
   else
       layout "application"
@@ -72,24 +72,32 @@ class RentalsController < ApplicationController
   # PATCH/PUT /rentals/1
   # PATCH/PUT /rentals/1.json
   def update
-    respond_to do |format|
-      if @rental.update(rental_params)
-        format.html { redirect_to rentals_path}
-        format.json { render :show, status: :ok, location: @rental }
-      else
-        format.html { render :edit }
-        format.json { render json: @rental.errors, status: :unprocessable_entity }
+    if Rental.current_user.admin?
+      respond_to do |format|
+        if @rental.update(rental_params)
+          format.html { redirect_to rentals_path}
+          format.json { render :show, status: :ok, location: @rental }
+        else
+          format.html { render :edit }
+          format.json { render json: @rental.errors, status: :unprocessable_entity }
+        end
       end
+    else 
+      redirect_to rentals_path
     end
   end
 
   # DELETE /rentals/1
   # DELETE /rentals/1.json
   def destroy
-    @rental.destroy
-    respond_to do |format|
-      format.html { redirect_to rentals_url}
-      format.json { head :no_content }
+    if Rental.current_user.admin?
+      @rental.destroy
+      respond_to do |format|
+        format.html { redirect_to rentals_url}
+        format.json { head :no_content }
+      end
+    else 
+      redirect_to rentals_path
     end
   end
 

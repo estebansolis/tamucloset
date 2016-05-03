@@ -67,9 +67,9 @@ RSpec.describe ApparelsController, type: :controller do
   let(:valid_session) { {} }
   
   before :each do
-    sign_in create( :user )
+    sign_in create( :admin )
   end
-  
+
   describe "GET #index" do
     it "assigns all apparels as @apparels" do
       apparel = Apparel.create! valid_attributes
