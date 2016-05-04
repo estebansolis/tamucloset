@@ -2,12 +2,6 @@ Feature: Add/Delete student
   As a employee
   So that I can keep students up to date
   I want to add new students and delete old students
-
-Background: students in database
-  Given the following students exist:
-  
-  | UIN        | First_Name  | Last_Name  | Email              | Phone_Number |
-  | 922004958  | Rafael      | Salas      | rafsalas@tamu.edu  | 2478247242   |
       
 Scenario: Add a new student
   Given A user is logged in as "cfajitas"

@@ -6,7 +6,7 @@ Feature: Track Checkin and Checkout
  Background: suits in database
     Given following suits are rented:
       | Rent  |   UIN   |Apparel_ID|Checkout_Date|Expected_Return_Date|   Return_Date   |
-      |   1   |112001896|    MJ1   |   1/18/16   |      1/27/16       |                 |
+      |   1   |112001896|    MJ1   |   1/18/16   |      1/27/16       |    1/28/16      |
       |   2   |112001896|    MJ2   |   1/18/16   |      1/27/16       |    1/27/16      |
       |   3   |112001896|    MJ3   |   1/18/16   |      1/27/16       |    1/26/16      |
       |   4   |112001896|    MJ4   |   1/18/16   |      1/27/16       |    1/26/16      |
