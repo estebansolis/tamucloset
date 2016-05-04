@@ -57,7 +57,7 @@ class PagesController < ApplicationController
         @apparel.save
         @rental.Return_Date = params[:date]
         @rental.save
-        flash[:notice] = "#{@rental.Return_Date}succit"          
+        flash[:notice] = "Successful check in!"          
         redirect_to checkin_path
       end
     end
@@ -70,7 +70,7 @@ class PagesController < ApplicationController
     end
       @rental = Rental.new
       
-      @date = params[:event]
+      @date = params[:date]
       if(!params[:app].nil? && !params[:uin].nil?)
         respond_to do |format|
           puts !params[:date]
