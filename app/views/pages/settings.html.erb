@@ -36,13 +36,20 @@
 <h3>Delete Users</h3>
 </div>
 <table class="table table-hover" id="delete_users">
-  <tr>  
-    <% @users = User.all %>
-    <% @users.each do |user| %>
-    <tr>
-      <td><%= user.email %></td>
-      <td><%= link_to "Destroy", admin_destroy_user_path(user), method: :delete, data: { confirm: "You sure?" } %></td>
-    </tr>
-  <% end %>
-  </tr>
+  <thead>
+    <th>Email</th>
+    <th>Admin</th>
+  </thead>
+  <tbody>
+      <tr>  
+      <% @users = User.all %>
+      <% @users.each do |user| %>
+      </tr>
+      <tr>
+        <td><%= user.email %></td>
+        <td><%= user.admin %></td>
+        <td><%= link_to "Destroy", admin_destroy_user_path(user), method: :delete, data: { confirm: "You sure?" } %></td>
+      </tr>
+      <% end %>
+  </tbody>
 </table>
