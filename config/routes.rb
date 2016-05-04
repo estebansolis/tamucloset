@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
 
   get 'users/sign_in'=> "pages#auth"
+  get 'users/sign_up' => "users#sign_up", as: :signup
   get 'users/:id' => 'users#show', as: :user
   delete 'users_destroy/:id' => 'pages#users_destroy', :via => :delete, :as => :admin_destroy_user
   get 'settings' => "pages#settings", as: :settings
