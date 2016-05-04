@@ -22,6 +22,16 @@
 @import "utilities";
 @import "pages";
 
+
+#topContainer{
+  background-image: image-url('campus.jpg');
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  padding-top: 10%;
+}
+
+
 #tablecontainer1 {
 	padding-top: 7%;
 }
@@ -59,9 +69,6 @@
 	padding-left: 600px;*/
 }
 
-#carousel-example-generic{
-	margin: 0 auto;
-}
 
 .test {
     text-align: center;
