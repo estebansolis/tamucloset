@@ -12,7 +12,7 @@
          <%= form_for(@rental) do |f| %>
          <p>
               <%= f.label :UIN %><br>
-               <%= f.text_field :UIN %>
+               <%= f.text_field :UIN , :maxlength => 9%>
          </p>
          <p>
              <%= f.label :Rental_ID %><br>

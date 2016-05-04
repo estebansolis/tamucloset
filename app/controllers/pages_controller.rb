@@ -45,7 +45,7 @@ class PagesController < ApplicationController
 
     @rental = Rental.find_by( UIN: params[:uin], Apparel_ID: params[:app], Return_Date: nil)
     if (@rental.nil?)
-      flash[:notice] = "Rental does not exist"
+      flash[:notice] = "Rental does not exist or fields left blank"
       redirect_to checkin_path
     else
       @apparel = Apparel.find_by(Apparel_ID: params[:app])
@@ -57,7 +57,7 @@ class PagesController < ApplicationController
         @apparel.save
         @rental.Return_Date = params[:date]
         @rental.save
-        flash[:notice] = "Check in Successful"          
+        flash[:notice] = "#{@rental.Return_Date}succit"          
         redirect_to checkin_path
       end
     end
@@ -69,12 +69,15 @@ class PagesController < ApplicationController
        render layout: "admin"
     end
       @rental = Rental.new
-      if(!params[:app].nil? && !params[:uin].nil? &&!params[:date].nil?)
+      
+      @date = params[:event]
+      if(!params[:app].nil? && !params[:uin].nil?)
         respond_to do |format|
+          puts !params[:date]
           if(params[:uin].length === 9) #check uin
-            format.html { redirect_to return_path(:app =>params[:app], :uin => params[:uin], :date => params[:date])}
+            format.html { redirect_to return_path(:app =>params[:app], :uin => params[:uin], :date => @date)}
             format.json { render :show, status: :created, location: @rental }
-          else
+          elsif ((params[:uin].length != 9) )
             format.html { redirect_to checkin_path, notice: "UIN must be 9 digits"}
             format.json { render :show, status: :created, location: @rental }
           end

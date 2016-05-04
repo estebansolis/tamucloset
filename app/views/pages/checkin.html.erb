@@ -59,8 +59,11 @@
          </p>
          <p>
             <label for="Return_Date">Return Date</label><br>
-            <%= date_field_tag("date") %>
+           
+             <%= date_select(:event, :date) %>           
          <p>
+             
+             
             <%= submit_tag "Submit" ,class: "btn-btn-primary3" %>
          </p>
          <% end %>

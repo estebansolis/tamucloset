@@ -33,6 +33,14 @@ class RentalsController < ApplicationController
   # POST /rentals.json
   def create
     @rental = Rental.new(rental_params)
+    if @rental.UIN.length != 9
+      respond_to do |format|
+          format.html { redirect_to checkout_path, notice: "Sorry, UIN must be 9 digits"}
+          format.json { render :show, status: :created, location: @rental }
+      end
+      return
+    end
+    @rental = Rental.new(rental_params)
     if(Apparel.exists?(Apparel_ID: @rental.Apparel_ID) )#find if Apparel id exist
       @apparel = Apparel.find_by(Apparel_ID: @rental.Apparel_ID)
       if(@apparel.Status === "IN" ) #if it exist and is not checked out, list as checked out
@@ -44,7 +52,9 @@ class RentalsController < ApplicationController
               format.html { redirect_to rentals_path}
               format.json { render :show, status: :created, location: @rental }
             else
-              format.html { render :new }
+              @apparel.Status = "IN"
+              @apparel.save
+              format.html { redirect_to checkout_path, notice: "Sorry, failed to save rental. Check that all fields or filled in." }
               format.json { render json: @rental.errors, status: :unprocessable_entity }
             end
         end
@@ -54,17 +64,19 @@ class RentalsController < ApplicationController
               format.html { redirect_to new_student_path(:uin => @rental.UIN)}
               format.json { render :show, status: :created, location: @rental }
             else
-              format.html { render :new }
+              @apparel.Status = "IN"
+              @apparel.save
+              format.html { redirect_to checkout_path, notice: "Sorry, failed to save rental. Check that all fields or filled in." }
               format.json { render json: @rental.errors, status: :unprocessable_entity }
             end
           end
         end      
       else
-        flash[:alert] =  'Apparel is listed as checked out' 
+        flash[:notice] =  'Sorry, apparel is listed as checked out or fields left blank' 
         redirect_to checkout_path
       end
     else
-        flash[:alert] =  'Apparel does not exist'#format.html { redirect_to checkout_path, notice: 'Apparel does not exist' } #id not found
+        flash[:notice] =  'Sorry, apparel does not exist or fields left blank'#format.html { redirect_to checkout_path, notice: 'Apparel does not exist' } #id not found
         redirect_to checkout_path
     end
   end
