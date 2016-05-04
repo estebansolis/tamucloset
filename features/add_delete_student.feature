@@ -10,9 +10,9 @@ Background: students in database
   | 922004958  | Rafael      | Salas      | rafsalas@tamu.edu  | 2478247242   |
       
 Scenario: Add a new student
-  Given A user is logged in as "tester"
+  Given A user is logged in as "cfajitas"
   Given I am on the home page
-  When  I follow "Students"
+  When  I follow the Students link
   Then  I am on the students page
   When  I follow "New Student"
   And   I fill in the "student_UIN" with "123456789"

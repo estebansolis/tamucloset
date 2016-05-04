@@ -7,7 +7,7 @@ Feature: Check out a Suit
 Background: On home page
 
 Scenario: Check out a new suit
-  Given A user is logged in as "tester"
+  Given A user is logged in as "cfajitas"
   Given I am on the home page
   When  I follow "Check Out"
   Then  I am on the checkout page

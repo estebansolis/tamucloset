@@ -7,7 +7,7 @@ Feature: View all appointments
 Background: On Home Page
   
 Scenario: Look at appointments page
-  Given A user is logged in as "tester"
+  Given A user is logged in as "cfajitas"
   Given I am on the home page
   When  I follow "Appointments"
   Then  I am on the appointments page

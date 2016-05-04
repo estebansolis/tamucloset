@@ -28,6 +28,9 @@ module NavigationHelpers
       
     when /^the appointment\s?page$/
       appointments_path
+      
+    when /^the new apparel\s?page$/
+      appointments_path
     
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
