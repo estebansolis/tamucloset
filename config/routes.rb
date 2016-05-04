@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
 
-
-
-
   devise_for :users
   devise_for :views
   resources :rentals
@@ -17,6 +14,7 @@ Rails.application.routes.draw do
 
 
   get 'users/sign_in'=> "pages#auth"
+  get 'users/sign_out'=> "pages#auth"
   get 'users/:id' => 'users#show', as: :user
   delete 'users_destroy/:id' => 'pages#users_destroy', :via => :delete, :as => :admin_destroy_user
   get 'settings' => "pages#settings", as: :settings
