@@ -4,43 +4,65 @@
   <% if flash[:notice] %>
     <div class="notice"><%= flash[:notice] %></div>
   <% end %>
-<form>
-<table class="table">
-	<thead>
-		<tr>
-			<%= form_tag return_path do %>
-			<th>
-				 <label for="UIN">UIN</label>
+<!--<form>-->
+<!--<table class="table">-->
+<!--	<thead>-->
+<!--		<tr>-->
+<!--			<%= form_tag return_path do %>-->
+<!--			<th>-->
+<!--				 <label for="UIN">UIN</label>-->
 				 
-			</th>
-			<th>
-				  <label for="Apparel_ID">Apparel ID</label>
-			</th>
-			<th>
-				 <label for="Return_Date">Return Date</label>
-			</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td>
+<!--			</th>-->
+<!--			<th>-->
+<!--				  <label for="Apparel_ID">Apparel ID</label>-->
+<!--			</th>-->
+<!--			<th>-->
+<!--				 <label for="Return_Date">Return Date</label>-->
+<!--			</th>-->
+<!--		</tr>-->
+<!--	</thead>-->
+<!--	<tbody>-->
+<!--		<tr>-->
+<!--			<td>-->
 				 
-				 <%= text_field_tag "uin",nil, :maxlength => 9  %>
-			</td>
-			<td>
-				 <%= text_field_tag("app") %>
-			</td>
-			<td>
-				<%= date_field_tag("date") %>
-			</td>
-		</tr>
-		<br>
-	</tbody>
-</table>
+<!--				 <%= text_field_tag "uin",nil, :maxlength => 9  %>-->
+<!--			</td>-->
+<!--			<td>-->
+<!--				 <%= text_field_tag("app") %>-->
+<!--			</td>-->
+<!--			<td>-->
+<!--				<%= date_field_tag("date") %>-->
+<!--			</td>-->
+<!--		</tr>-->
+<!--		<br>-->
+<!--	</tbody>-->
+<!--</table>-->
+
+<!--<div class="form">-->
+<!--     <%= submit_tag "Submit" ,class: "btn-btn-primary3" %> -->
+
+<!--</div>-->
+<!--</form>-->
+<!--<% end %>-->
+
 
 <div class="form">
-     <%= submit_tag "Submit" ,class: "btn-btn-primary3" %> 
-
-</div>
-</form>
-<% end %>
+     <tbody>
+        <%= form_tag return_path do %>
+         <p>
+            <label for="UIN">UIN</label><br>
+            <%= text_field_tag "uin",nil, :maxlength => 9  %>
+         </p>
+         <p>
+            <label for="Apparel_ID">Apparel ID</label><br>
+            <%= text_field_tag("app") %>
+         </p>
+         <p>
+            <label for="Return_Date">Return Date</label><br>
+            <%= date_field_tag("date") %>
+         <p>
+            <%= submit_tag "Submit" ,class: "btn-btn-primary3" %>
+         </p>
+         <% end %>
+     </tbody>
+ </div> 

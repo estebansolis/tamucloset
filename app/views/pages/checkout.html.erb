@@ -2,81 +2,38 @@
 <h1>Check Out</h1>
 </div>
 
-<table class="table">
-	<thead>
-		<tr>
-			<%= form_for(@rental) do |f| %>
 
-			<th align="center">
-				<%= f.label :Rental_ID %>
-			</th>
-			<th>
-				 <%= f.label :UIN %>
-			</th>
-			<th>
-				 <%= f.label :Apparel_ID %>
-			</th>
-			<th>
-				<%= f.label :Checkout_Date %>
-			</th>
-			<th>
-				<%= f.label :Expected_Return_Date %>
-			</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td>
-				<%= f.text_field :Rental_ID %>
-			</td>
-			<td>
-				 <%= f.text_field :UIN %>
-			</td>
-			<td>
-				 <%= f.text_field :Apparel_ID %>
-			</td>
-			<td>
-				<%= f.date_field :Checkout_Date %>
-			</td>
-			<td>
-				<%= f.date_field :Expected_Return_Date %>
-			</td>
-		</tr>
-		<br>
-	</tbody>
-</table>
-
-<div class="form">
-	<%= f.submit class: "btn-btn-primary3" %>
-</div>
+<% if flash[:notice] %>
+  <div class="notice"><%= flash[:notice] %></div>
 <% end %>
 
-<!--<div class="form">-->
-<!-- 	<tbody>-->
-<!-- 		<%= form_for(@rental) do |f| %>-->
-<!-- 		<p>-->
-<!-- 			 <%= f.label :UIN %><br>-->
-<!--      		 <%= f.text_field :UIN %>-->
-<!-- 		</p>-->
-<!-- 		<p>-->
-<!-- 			<%= f.label :Rental_ID %><br>-->
-<!--       		<%= f.text_field :Rental_ID %>-->
-<!-- 		</p>-->
-<!-- 		<p>-->
-<!-- 			 <%= f.label :Apparel_ID %><br>-->
-<!--      		 <%= f.text_field :Apparel_ID %>-->
-<!-- 		</p>-->
-<!-- 		<p>-->
-<!-- 			<%= f.label :Checkout_Date %><br>-->
-<!--       		<%= f.date_field :Checkout_Date %>-->
-<!-- 		</p>-->
-<!-- 		<p>-->
-<!-- 			<%= f.label :Expected_Return_Date %><br>-->
-<!--      	 	<%= f.date_field :Expected_Return_Date %>-->
-<!-- 		</p>-->
-<!-- 		<p>-->
-<!-- 			<%= f.submit class: "btn-btn-primary3" %>-->
-<!-- 		</p>-->
-<!-- 		<% end %>-->
-<!-- 	</tbody>-->
-<!-- </div> -->
+<div class="form">
+     <tbody>
+         <%= form_for(@rental) do |f| %>
+         <p>
+              <%= f.label :UIN %><br>
+               <%= f.text_field :UIN %>
+         </p>
+         <p>
+             <%= f.label :Rental_ID %><br>
+               <%= f.text_field :Rental_ID %>
+         </p>
+         <p>
+              <%= f.label :Apparel_ID %><br>
+               <%= f.text_field :Apparel_ID %>
+         </p>
+         <p>
+             <%= f.label :Checkout_Date %><br>
+               <%= f.date_field :Checkout_Date %>
+         </p>
+         <p>
+             <%= f.label :Expected_Return_Date %><br>
+               <%= f.date_field :Expected_Return_Date %>
+         </p>
+         <p>
+             <%= f.submit class: "btn-btn-primary3" %>
+         </p>
+         <% end %>
+     </tbody>
+ </div> 
+
