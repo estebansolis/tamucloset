@@ -124,8 +124,6 @@ GEM
       railties (>= 3.1.0)
       turbolinks
     json (1.8.3)
-    launchy (2.4.3)
-      addressable (~> 2.3)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
@@ -255,7 +253,6 @@ DEPENDENCIES
   jquery-datatables-rails!
   jquery-rails
   jquery-turbolinks
-  launchy
   pg
   rails (= 4.2.5)
   rails_12factor

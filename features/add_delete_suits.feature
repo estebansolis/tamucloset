@@ -10,11 +10,12 @@ Background: suits in database
   | FJ431       | Female  | Jacket    | 32    | In     |
       
 Scenario: Add a new suit
-  Given A user is logged in as "tester"
+  Given A user is logged in as "cfajitas"
   Given I am on the home page
-  When  I follow "Apparel"
+  When  I follow the Available link
   Then  I am on the available page
-  When  I follow "New Apparel"
+  When  I follow New Apparel link
+  Then  I am on the new apparel page
   When  I fill in the "apparel_Apparel_ID" with "FJ431"
   And   I fill in the "apparel_Sex" with "Female"
   And   I fill in the "apparel_Article" with "Jacket"

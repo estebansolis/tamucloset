@@ -7,7 +7,7 @@ Feature: Check in a Suit
 Background: On home page
 
 Scenario: Check in a returned suit
-  Given A user is logged in as "tester"
+  Given A user is logged in as "cfajitas"
   Given I am on the home page
   When  I follow "Check In"
   Then  I am on the checkin page

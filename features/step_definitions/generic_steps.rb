@@ -1,18 +1,14 @@
 Given(/^A user is logged in as "([^"]*)"$/) do |arg1|
   @current_user = User.create!(
-    :password => 'generic',
-    :password_confirmation => 'generic',
-    :email => "#{arg1}@example.com"
+    :password => 'password1',
+    :password_confirmation => 'password1',
+    :email => "#{arg1}@gmail.com"
   )
-  visit "/signin" 
-  fill_in("Email", :with => "#{arg1}@example.com") 
-  fill_in("Password", :with => 'generic') 
+  visit "/auth" 
+  fill_in("user_email", :with => "#{arg1}@gmail.com") 
+  fill_in("user_password", :with => 'password1') 
   click_button("Log in")
-  if page.respond_to? :should
-    expect(page).to have_content('Signed in successfully')
-  else
-    assert page.has_content?('Signed in successfully')
-  end
+  expect(page.current_path == root_path)
 end
 
 When(/^I fill in the "([^"]*)" with "([^"]*)"$/) do |arg1, arg2|

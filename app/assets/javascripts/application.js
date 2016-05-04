@@ -19,7 +19,6 @@
 //= require dataTables/jquery.dataTables
 //= require_tree .
 //= require jquery.turbolinks
-//= require turbolinks
 
 $(document).ready(function(){
     $('.filterable .btn-filter').click(function(){
